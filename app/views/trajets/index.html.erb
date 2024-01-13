@@ -1,0 +1,34 @@
+<%= render 'layouts/base' %>
+
+<h1>Mes Trajets</h1>
+
+<div class="uk-child-width-1-4@m uk-child-width-1-2@s uk-grid-small" uk-grid>
+  <% if @trajets.any? %>
+    <% @trajets.each do |trajet| %>
+      <div>
+        <a href="#" class="event_cover">
+          <div class="sl_events_list_media">
+            <img src="assets/images/events/img-4.jpg" class="events-list-cover-img">
+            <%= image_tag 'group-cover-1.jpg', class: "events-list-cover-img" %>
+          </div>
+        </a>
+        <div class="sl_events_list_info">
+          <p><strong>Départ:</strong> <%= trajet.depart %></p>
+          <h3><strong>Destination:</strong> <%= trajet.destination %></h3>
+          <span class="event-info-date">
+            <%= trajet.places_disponibles %> Places
+          </span>
+          <div class="sl_events_list_info_btns">
+            <span>
+              <button type="button" class="btn button blue small block">
+              <span> Voire Plus</span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Aucun trajet trouvé.</p>
+  <% end %>
+</div>

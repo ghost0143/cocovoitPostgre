@@ -1,0 +1,43 @@
+<%= render 'layouts/base' %>
+<div class="uk-child-width-1-4@m uk-child-width-1-2@s uk-grid-small" uk-grid>
+
+<% @conducteurs.each do |conducteur| %>
+    <div class="sl_find_frns_user">
+        <div class="sl_find_frns_user_cover"> 
+            <%= image_tag 'group-cover-1.jpg' %>
+        </div>
+        <div class="sl_find_frns_user_info">
+            <div class="sl_find_frns_user_avatar"> 
+                <a href="timeline.html">
+                    <%= image_tag 'avatar-1.jpg' %>
+                </a>
+            </div>
+            <h4> <%= conducteur.first_name %>  <%= conducteur.last_name %></h4>
+            <p> <span class="small-last-seen">Note:</span> </p>
+        </div>
+        <div class="sl_find_frns_user_btns">
+            <span>
+                <button type="button" class="btn button small primary">
+                    <span>View Profil</span>
+                </button>
+            </span>
+            <span>
+                <button type="button" class="btn button small light">
+                    <span> Give Notice</span>
+                </button> 
+            </span>
+        </div>
+        
+    </div>
+    <% end %>
+
+</div>
+</div>
+
+               </div> <!-- / heaader-innr -->
+           </header>
+
+       </div>
+</body>
+
+</html>

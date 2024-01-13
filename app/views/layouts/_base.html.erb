@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Simplest is - Professional A unique and beautiful collection of UI elements">
+    <link rel="icon" href="assets/images/favicon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "style", "uikit", "icons" %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "uikit", "simplebar"%>
+
+    
+   
+
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="assets/css/icons.css">
+    <script src="https://kit.fontawesome.com/815e388c50.js" crossorigin="anonymous"></script>
+
+    <!-- Google font
+    ================================================== -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    </head>
+
+
+
+    <body>
+
+    <div class="main_sidebar">
+    <div class="side-overlay" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></div>
+
+    <!-- sidebar header -->
+    <div class="sidebar-header">
+        <!-- Logo-->
+        <div id="logo">
+            <a href="feeds.html"> <img src="assets/images/logo-light.png" alt=""></a>
+        </div>
+        <span class="btn-close" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></span>
+    </div>
+
+    <!-- sidebar Menu -->
+    <div class="sidebar">
+        <div class="sidebar_innr" data-simplebar>
+
+            <div class="sections">
+                <ul>
+                <li class="<%= 'active' if current_page?(trajets_path) %>">
+                    <%= link_to "Accueil", trajets_path %>
+                </li>
+                <li class="<%= 'active' if current_page?(dashboard_path(current_user)) %>">
+                    <%= link_to "Conducteurs", dashboard_path(current_user) %>
+                </li>
+                <li>
+                    <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
+                </li>
+                
+                   
+                    
+                    
+                    
+               
+                </ul>
+                
+            </div>
+
+
+
+            <!--  Optional Footer -->
+            <div id="foot">
+
+                <ul>
+                    <li> <a href="page-term.html"> About Us </a></li>
+                    <li> <a href="page-setting.html"> Setting </a></li>
+                    <li> <a href="page-privacy.html"> Privacy Policy </a></li>
+                    <li> <a href="page-term.html"> Terms - Conditions </a></li>
+                </ul>
+
+
+                <div class="foot-content">
+                    <p>© 2024 <strong>COCOVOIT</strong>. All Rights Reserved. </p>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<body>
+
+        <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- sidebar -->
+      
+
+       <!-- contents -->
+       <div class="main_content">
+
+            <!-- header -->
+       <div id="main_header">
+           <header>
+               <div class="header-innr">
+
+                   <!-- Logo-->
+                   <div class="header-btn-traiger is-hidden" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible">
+                       <span></span></div>
+
+                    <!-- Logo-->
+                    <div id="logo">
+                       <a href="feeds.html"> <img src="assets/images/logo.png" alt=""></a>
+                       <a href="feeds.html"> <img src="assets/images/logo-light.png" class="logo-inverse"
+                               alt=""></a>
+                   </div>
+
+                   <!-- form search-->
+                   <div class="head_search">
+                   <div class="head_search_cont">
+                   <%= form_tag(search_trajets_path, method: :get) do %>
+                    <%= text_field_tag :query, params[:query], placeholder: 'Rechercher des trajets...', class: "form-control" %>
+                    <%= submit_tag 'Rechercher' %>
+                  <% end %>
+                  </div>
+
+
+
+
+                     
+                   </div>
+                   </div>
+
+                   <ul>
+
+                   <% if current_user.role == 'Conducteur' %>
+                   <div class="uk-flex uk-flex-between uk-flex-middle mb-4">
+                        <%= link_to "Create New Route", new_trajet_path, class: "button primary small circle uk-visible@s" %>
+                    </div>
+                    <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <%= yield %>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+   
+
+
+
+    
+
+
+</body>
+
+</html>

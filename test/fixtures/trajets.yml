@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  conducteur: one
+  depart: MyString
+  destination: MyString
+  heure_depart: 2024-01-12 10:57:08
+  places_disponibles: 1
+  type_voiture: MyString
+
+two:
+  conducteur: two
+  depart: MyString
+  destination: MyString
+  heure_depart: 2024-01-12 10:57:08
+  places_disponibles: 1
+  type_voiture: MyString

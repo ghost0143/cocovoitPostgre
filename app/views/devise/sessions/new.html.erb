@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Simplest is - Professional A unique and beautiful collection of UI elements">
+    <link rel="icon" href="assets/images/favicon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "style", "uikit", "icons" %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "uikit", "simplebar"%>
+
+    
+</head> 
+
+<div uk-height-viewport class="uk-flex uk-flex-middle">
+        <div class="uk-width-2-3@m uk-width-1-2@s m-auto rounded uk-overflow-hidden shadow-lg">
+            <div class="uk-child-width-1-2@m uk-grid-collapse bg-gradient-primary" uk-grid>
+
+                <!-- column one -->
+                <div class="uk-margin-auto-vertical uk-text-center uk-animation-scale-up p-3 uk-light">
+                    <img src="assets/images/logo-light-icon.png" alt="">
+                    <h3 class="mb-3 mt-lg-4"> Cocovoit</h3>
+                    <p>Share what's new and life moments with <br> your friends. </p>
+                </div>
+
+                <!-- column two -->
+                    <div class="uk-card-default px-5 py-8">
+                        <div class="mb-4 uk-text-center">
+                            <h2 class="mb-0"> Welcome Back</h3>
+                            <p class="my-2">Login to manage your account.</p>
+                        </div>
+
+
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                          <div>
+                            <div class="uk-form-group">
+                              <%= f.label :email, class: "uk-form-label" %>
+                                <div class="uk-position-relative w-100">
+                                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "uk-input" %>
+                                </div>
+
+                            </div>
+                            
+                            <div class="uk-width-1-2@s">
+                            <div class="uk-form-group">
+                              <%= f.label :password, class: "uk-form-label"%>
+                                <div class="uk-position-relative w-100">
+                                    <%= f.password_field :password, autocomplete: "new-password", class: "uk-input" %>
+                                </div>
+  
+                            </div>
+
+
+
+                          </div>
+
+                          <% if devise_mapping.rememberable? %>
+                          <div class="field">
+                            <%= f.check_box :remember_me %>
+                            <%= f.label :remember_me %>
+                          </div>
+                        <% end %>
+                      
+                      </div>
+                      <div class="mt-4 uk-flex-middle uk-grid-small" uk-grid>
+                                <div class="uk-width-expand@s">
+                                    <p> Don't have account <%= render "devise/shared/links" %> </p>
+                                </div>
+                                <div class="uk-width-auto@s actions">
+                                    <%= f.submit "Log in", class: "button primary" %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% end %>
+                        
+                       
+                        
+                </div><!--  End column two -->
+
+            </div>
+        </div>
+    </div>
+

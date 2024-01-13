@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Simplest is - Professional A unique and beautiful collection of UI elements">
+    <link rel="icon" href="assets/images/favicon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "style", "uikit", "icons" %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "uikit", "simplebar"%>
+
+    <style>
+      background-color: white;
+    </style>
+
+    
+</head> 
+
+<div uk-height-viewport class="uk-flex uk-flex-middle">
+        <div class="uk-width-2-3@m uk-width-1-2@s m-auto rounded uk-overflow-hidden shadow-lg">
+            <div class="uk-child-width-1-2@m uk-grid-collapse bg-gradient-primary" uk-grid>
+
+                <!-- column one -->
+                <div class="uk-margin-auto-vertical uk-text-center uk-animation-scale-up p-3 uk-light">
+                    <img src="assets/images/logo-light-icon.png" alt="">
+                    <h3 class="mb-3 mt-lg-4"> Cocovoit</h3>
+                    <p>Share what's new and life moments with <br> your friends. </p>
+                </div>
+
+                <!-- column two -->
+                    <div class="uk-card-default px-5 py-8">
+                        <div class="mb-4 uk-text-center">
+                            <h2 class="mb-0"> Create new Route</h3>
+                            <p class="my-2">Create Your Route End Share It!!.</p>
+                        </div>
+
+
+                        <%= form_with(model: @trajet, url: trajets_path, method: :post) do |form| %>
+                            <% if @trajet.errors.any? %>
+                              <div id="error_explanation">
+                                <h2><%= pluralize(@trajet.errors.count, "error") %> prohibited this trajet from being saved:</h2>
+                          
+                                <ul>
+                                <% @trajet.errors.full_messages.each do |message| %>
+                                  <li><%= message %></li>
+                                <% end %>
+                                </ul>
+                              </div>
+                            <% end %>
+                          
+                            
+                        
+                            <div>
+                                <div class="uk-form-group">
+                                    <%= form.label :depart, class: "uk-form-label" %>
+                                    <div class="uk-position-relative w-100">
+                                        <%= form.text_field :depart, class: "uk-input" %>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div>
+                                <div class="uk-form-group">
+                                    <%= form.label :destination, class: "uk-form-label" %>
+                                    <div class="uk-position-relative w-100">
+                                        <%= form.text_field :destination, class: "uk-input" %>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div>
+                                <div class="uk-form-group">
+                                    <%= form.label :heure_depart, class: "uk-form-label" %>
+                                    <div class="uk-position-relative w-100">
+                                        <%= form.datetime_field :heure_depart, class: "uk-input" %>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div>
+                                <div class="uk-form-group">
+                                    <%= form.label :places_disponibles, class: "uk-form-label" %>
+                                    <div class="uk-position-relative w-100">
+                                        <%= form.number_field :places_disponibles, class: "uk-input" %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="uk-form-group">
+                                    <%= form.label :type_voiture, class: "uk-form-label" %>
+                                <div class="uk-position-relative w-100">
+                                    <%= form.select :type_voiture, options_for_select(["Essence", "Electrique"]), {}, class: "uk-input" %>
+                                </div>
+                            </div>
+                          
+                          
+                                <div class="mt-4 uk-flex-middle uk-grid-small actions" uk-grid>
+                                    <div class="uk-width-auto@s actions">
+                                        <%= form.submit "Create", class: "button primary" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <% end %>
+                          
+                           
+          
+                          
+                        
+                       
+                        
+                </div><!--  End column two -->
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
