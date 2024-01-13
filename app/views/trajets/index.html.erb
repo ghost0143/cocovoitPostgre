@@ -1,6 +1,18 @@
 <%= render 'layouts/base' %>
+<!-- Ajoutez ceci à votre vue -->
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 
-<h1>Mes Trajets</h1>
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<h1>Trajets Disponibles</h1>
 
 <div class="uk-child-width-1-4@m uk-child-width-1-2@s uk-grid-small" uk-grid>
   <% if @trajets.any? %>
@@ -8,21 +20,22 @@
       <div>
         <a href="#" class="event_cover">
           <div class="sl_events_list_media">
-            <img src="assets/images/events/img-4.jpg" class="events-list-cover-img">
             <%= image_tag 'group-cover-1.jpg', class: "events-list-cover-img" %>
           </div>
         </a>
         <div class="sl_events_list_info">
-          <p><strong>Départ:</strong> <%= trajet.depart %></p>
+          <h3><strong>Départ:</strong> <%= trajet.depart %></h3>
           <h3><strong>Destination:</strong> <%= trajet.destination %></h3>
-          <span class="event-info-date">
-            <%= trajet.places_disponibles %> Places
-          </span>
+          <h3><strong>Places Disponibles:</strong> <%= trajet.places_disponibles %></h3>
+          <h3><strong>Date:</strong> <%= trajet.heure_depart %></h3>
+
           <div class="sl_events_list_info_btns">
             <span>
-              <button type="button" class="btn button blue small block">
-              <span> Voire Plus</span>
-              </button>
+              <%= form_with(url: reserver_trajet_path(trajet), method: :post) do |form| %>
+                <%= form.button type: 'submit', class: 'btn button blue small block' do %>
+                  <span>Réserver Maintenant</span>
+                <% end %>
+              <% end %>
             </span>
           </div>
         </div>
@@ -32,3 +45,4 @@
     <p>Aucun trajet trouvé.</p>
   <% end %>
 </div>
+

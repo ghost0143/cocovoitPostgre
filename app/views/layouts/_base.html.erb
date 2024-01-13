@@ -53,6 +53,14 @@
                 <li class="<%= 'active' if current_page?(dashboard_path(current_user)) %>">
                     <%= link_to "Conducteurs", dashboard_path(current_user) %>
                 </li>
+                <li class="<%= 'active' if current_page?(dashboard_path(current_user)) %>">
+                <%= link_to 'Vos trajets réservés', trajets_reserves_trajets_path %>
+
+
+                </li>
+
+
+
                 <li>
                     <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
                 </li>

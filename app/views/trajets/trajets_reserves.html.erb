@@ -1,0 +1,28 @@
+<%= render 'layouts/base' %>
+
+<h1>Vos trajets réservés</h1>
+
+<h1>Vos trajets réservés</h1>
+
+<% if @trajets_reserves.any? %>
+  <div class="uk-child-width-1-4@m uk-child-width-1-2@s uk-grid-small" uk-grid>
+    <% @trajets_reserves.each do |trajet| %>
+      <div>
+        <a href="#" class="event_cover">
+          <div class="sl_events_list_media">
+            <%= image_tag 'group-cover-1.jpg', class: "events-list-cover-img" %>
+          </div>
+        </a>
+        <div class="sl_events_list_info">
+          <h3><strong>Départ:</strong> <%= trajet.depart %></h3>
+          <h3><strong>Destination:</strong> <%= trajet.destination %></h3>
+          <h3><strong>Places Disponibles:</strong> <%= trajet.places_disponibles %></h3>
+          <h3><strong>Date:</strong> <%= trajet.heure_depart %></h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>Vous n'avez pas encore réservé de trajets.</p>
+<% end %>
+

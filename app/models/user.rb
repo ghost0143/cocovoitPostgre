@@ -26,6 +26,8 @@ class User < ApplicationRecord
   end
 
   has_many :trajets, foreign_key: 'conducteur_id', dependent: :destroy
+  has_many :reservations
+
 
   
 end
