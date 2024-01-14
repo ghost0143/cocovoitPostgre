@@ -1,13 +1,13 @@
 <%= render 'layouts/base' %>
 <!-- Ajoutez ceci à votre vue -->
 <% if flash[:alert] %>
-  <div class="alert alert-danger">
+  <div class="alert alert-danger" style="text-color: green;">
     <%= flash[:alert] %>
   </div>
 <% end %>
 
 <% if flash[:notice] %>
-  <div class="alert alert-success">
+  <div class="alert alert-success" style="text-color: green;">
     <%= flash[:notice] %>
   </div>
 <% end %>
@@ -20,7 +20,7 @@
       <div>
         <a href="#" class="event_cover">
           <div class="sl_events_list_media">
-            <%= image_tag 'group-cover-1.jpg', class: "events-list-cover-img" %>
+            <%= image_tag 'trajet.jpg', class: "events-list-cover-img" %>
           </div>
         </a>
         <div class="sl_events_list_info">

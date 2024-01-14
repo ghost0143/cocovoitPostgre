@@ -36,7 +36,7 @@
     <div class="sidebar-header">
         <!-- Logo-->
         <div id="logo">
-            <a href="feeds.html"> <img src="assets/images/logo-light.png" alt=""></a>
+        <a href="#"> <%= image_tag 'logo.png' %>
         </div>
         <span class="btn-close" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></span>
     </div>
@@ -53,7 +53,7 @@
                 <li class="<%= 'active' if current_page?(dashboard_path(current_user)) %>">
                     <%= link_to "Conducteurs", dashboard_path(current_user) %>
                 </li>
-                <li class="<%= 'active' if current_page?(dashboard_path(current_user)) %>">
+                <li class="<%= 'active' if current_page?trajets_reserves_trajets_path %>">
                 <%= link_to 'Vos trajets réservés', trajets_reserves_trajets_path %>
 
 
@@ -150,7 +150,7 @@
 
                    <% if current_user.role == 'Conducteur' %>
                    <div class="uk-flex uk-flex-between uk-flex-middle mb-4">
-                        <%= link_to "Create New Route", new_trajet_path, class: "button primary small circle uk-visible@s" %>
+                        <%= link_to "Créer un nouveau trajet", new_trajet_path, class: "button primary small circle uk-visible@s" %>
                     </div>
                     <% end %>
 
